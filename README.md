@@ -26,6 +26,5 @@ output the result on the right. This will be a HTML,CSS,JS Editor
 
 ## Guide
 
-— W3Schools Tryit Editor - https://www.w3schools.com/tryit/tryit.asp? filename=tryhtml_default
+— W3Schools Tryit Editor - https://www.w3schools.com/tryit/tryit.asp?filename=tryhtml_default
 Note: Implement an Editor similar to this. Upload Source Code as a Zip file
-1/1
