@@ -22,17 +22,28 @@ const loadScript = (src, id) => {
 
 const aceUrl = "https://pagecdn.io/lib/ace/1.4.12/ace.min.js";
 const monokaiTheme = "https://pagecdn.io/lib/ace/1.4.12/theme-monokai.min.js";
+const soloarizedLightTheme =
+  "https://pagecdn.io/lib/ace/1.4.12/theme-solarized_light.min.js";
 const htmlUrl = "https://pagecdn.io/lib/ace/1.4.12/mode-html.min.js";
 
 export default function Home() {
   const [code, setCode] = useState("");
+  const [editor, setEditor] = useState({});
+  const [theme, setTheme] = useState("Monokai");
+
+  function toggleTheme() {
+    if (theme === "Monokai") editor.setTheme("ace/theme/solarized_light");
+    else editor.setTheme("ace/theme/monokai");
+    setTheme(theme === "Monokai" ? "Solarized" : "Monokai");
+  }
 
   useEffect(() => {
     async function loadAllScripts() {
-      await loadScript(aceUrl, "aces");
+      await loadScript(aceUrl, "ace-editor");
       const scripts = [
-        loadScript(monokaiTheme, "theme"),
+        loadScript(monokaiTheme, "monokai"),
         loadScript(htmlUrl, "js-editor"),
+        loadScript(soloarizedLightTheme, "soloarized-light"),
       ];
       await Promise.allSettled(scripts);
       const editor = ace.edit("editor");
@@ -43,6 +54,7 @@ export default function Home() {
         setCode(() => editor.getValue());
         // delta.start, delta.end, delta.lines, delta.action
       });
+      setEditor(editor);
     }
     loadAllScripts();
   }, []);
@@ -53,8 +65,16 @@ export default function Home() {
         <meta name="description" content="Editor" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.editor} id="editor" />
-      <div dangerouslySetInnerHTML={{ __html: code }} />
+      <button onClick={toggleTheme}>
+        Switch to {theme === "Monokai" ? "Solarized" : "Monokai"}
+      </button>
+      <div className={styles.section}>
+        <div className={styles.editor} id="editor" />
+        <div
+          className={styles.view}
+          dangerouslySetInnerHTML={{ __html: code }}
+        />
+      </div>
     </div>
   );
 }
