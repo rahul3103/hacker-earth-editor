@@ -53,10 +53,8 @@ export default function Home() {
         <meta name="description" content="Editor" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.editor} id="editor">
-        some text
-      </div>
-      <div dangerouslySetInnerHTML={{ __html: code }}></div>
+      <div className={styles.editor} id="editor" />
+      <div dangerouslySetInnerHTML={{ __html: code }} />
     </div>
   );
 }
