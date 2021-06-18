@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Problem Statement
 
-## Getting Started
+assessment.hackerearth.com/challenges/hiring/playment-frontend-developer-hiring- challenge/problems/d73451f0eced42fbad1145293d40ff6f
+Question Frontend Editor
+1 Develop a pseudo Front End Editor in React or Vue (Vanilla or Angular not allowed) which would let the users code on the left and
+Max. score: 100.00
+output the result on the right. This will be a HTML,CSS,JS Editor
 
-First, run the development server:
+## Minimum Requirement (entry level)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+— Embed ACE Editor on the left part of the screen. — Display an IFrame on the right part of the screen.
+— Implement a Run button clicking which the HTML, CSS, JS code on the left (user submitted code in the Editor) gets executed and generates a view similar to a browser in the IFrame on the right.
+— Implement proper error handling. There must be no frame distortion/mirroring.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Plus Point] (intermediate)
+— Responsive for Mobile Screens. Editor on top, IFrame on the bottom. — A feature to Save the Code written in a file called ‘download.txt'.
+— Implement a Dark Mode.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Guide]
+— W3Schools Tryit Editor - https://www.w3schools.com/tryit/tryit.asp? filename=tryhtml_default
+Note: Implement an Editor similar to this. Upload Source Code as a Zip file
+1/1
