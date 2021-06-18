@@ -12,7 +12,9 @@ output the result on the right. This will be a HTML,CSS,JS Editor
 
 ## Minimum Requirement (entry level)
 
-— Embed ACE Editor on the left part of the screen. — Display an IFrame on the right part of the screen.
+— Embed ACE Editor on the left part of the screen. 
+
+— Display an IFrame on the right part of the screen.
 
 — Implement a Run button clicking which the HTML, CSS, JS code on the left (user submitted code in the Editor) gets executed and generates a view similar to a browser in the IFrame on the right.
 
