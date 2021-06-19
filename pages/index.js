@@ -37,6 +37,10 @@ export default function Home() {
     setTheme(theme === "Monokai" ? "Solarized" : "Monokai");
   }
 
+  function play() {
+    setCode(editor.getValue());
+  }
+
   useEffect(() => {
     async function loadAllScripts() {
       await loadScript(aceUrl, "ace-editor");
@@ -50,10 +54,10 @@ export default function Home() {
       editor.session.setUseWorker(false);
       editor.setTheme("ace/theme/monokai");
       editor.session.setMode("ace/mode/html");
-      editor.session.on("change", function (delta) {
-        setCode(() => editor.getValue());
-        // delta.start, delta.end, delta.lines, delta.action
-      });
+      // editor.session.on("change", function (delta) {
+      //   setCode(() => editor.getValue());
+      //   // delta.start, delta.end, delta.lines, delta.action
+      // });
       setEditor(editor);
     }
     loadAllScripts();
@@ -65,10 +69,14 @@ export default function Home() {
         <meta name="description" content="Editor" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <button onClick={toggleTheme}>
-        Switch to {theme === "Monokai" ? "Solarized" : "Monokai"}
-      </button>
+
       <div className={styles.section}>
+        <div className={styles.nav}>
+          <button onClick={toggleTheme}>
+            Switch to {theme === "Monokai" ? "Solarized" : "Monokai"}
+          </button>
+          <button onClick={play}>Play</button>
+        </div>
         <div className={styles.editor} id="editor" />
         <div
           className={styles.view}
