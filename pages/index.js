@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "../styles/Home.module.css";
 
-const loadScript = (src, id) => {
+function loadScript(src, id) {
   return new Promise((resolve, reject) => {
     const existingScript = document.getElementById(id);
     if (!existingScript) {
@@ -18,7 +18,9 @@ const loadScript = (src, id) => {
       resolve();
     }
   });
-};
+}
+
+function addIframe() {}
 
 const aceUrl = "https://pagecdn.io/lib/ace/1.4.12/ace.min.js";
 const monokaiTheme = "https://pagecdn.io/lib/ace/1.4.12/theme-monokai.min.js";
@@ -37,8 +39,15 @@ export default function Home() {
     setTheme(theme === "Monokai" ? "Solarized" : "Monokai");
   }
 
+  const iframeContainer = useRef(null);
+
   function play() {
-    setCode(editor.getValue());
+    const editorValue = editor.getValue();
+    const doc = iframeContainer.current.contentWindow.document;
+    doc.open();
+    doc.write(editorValue);
+    doc.close();
+    setCode(editorValue);
   }
 
   useEffect(() => {
@@ -78,10 +87,9 @@ export default function Home() {
           <button onClick={play}>Play</button>
         </div>
         <div className={styles.editor} id="editor" />
-        <div
-          className={styles.view}
-          dangerouslySetInnerHTML={{ __html: code }}
-        />
+        <div className={styles.view}>
+          <iframe className={styles.iframe} ref={iframeContainer} />
+        </div>
       </div>
     </div>
   );
